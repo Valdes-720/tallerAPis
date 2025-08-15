@@ -9,11 +9,12 @@ async function apiExterna() {
         let respuesta = await fetch(url);
         let datos = await respuesta.json();
 
-        
-        contenedor.innerHTML = "";
+        // Crear el contenedor de la galería
+        contenedor.innerHTML = '<div class="contenedorGaleria"></div>';
+        let galeria = contenedor.querySelector('.contenedorGaleria');
         let laInfo = datos.slice(0, 12);
         laInfo.forEach((foto) => {
-            contenedor.innerHTML += `
+            galeria.innerHTML += `
                 <img src="${foto.url}" alt="${foto.title}">
             `;
         });
